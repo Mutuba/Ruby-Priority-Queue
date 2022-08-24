@@ -45,7 +45,7 @@ class Element
   # q << Element.new('paul', 7)
   # q << Element.new('oliver', 8)
   
-  # p q.pop.name
+  # p q.pop.name # => "foo"
   
   class PriorityQueue
     def initialize
@@ -135,5 +135,5 @@ class Element
   q << Element.new('paul', 7)
   q << Element.new('oliver', 8)
   
-  p q.pop.name # oliver
+  p q.pop.name # => "foo"oliver
   
