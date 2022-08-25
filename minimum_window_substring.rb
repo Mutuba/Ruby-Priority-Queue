@@ -26,7 +26,7 @@ def minimum_window_substring(search_string, string_to_be_found)
     have += 1 if string_to_be_found_hash.key?(char) &&
                  search_string_window_hash[char] == string_to_be_found_hash[char]
 
-    # start
+    # start reducing the substring
     while have == need
       if (index - left_pointer) < result_length
         result = [left_pointer, index] # update the result left and right pointers
@@ -36,6 +36,9 @@ def minimum_window_substring(search_string, string_to_be_found)
       # pop from the left
       search_string_window_hash[search_string[left_pointer]] -= 1
 
+      # if the key at left pointer is in string_to_be_found_hash and by reducing the count for current character in
+      # search_string_window_hash has resulted in the count
+      # in search_string_window_hash beinf less than string_to_be_found_hash
       if string_to_be_found_hash.key?(search_string[left_pointer]) &&
          search_string_window_hash[search_string[left_pointer]] < string_to_be_found_hash[search_string[left_pointer]]
         have -= 1
