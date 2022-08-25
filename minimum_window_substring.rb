@@ -28,7 +28,7 @@ def minimum_window_substring(search_string, string_to_be_found)
 
     # start
     while have == need
-      if (index - left_pointer + 1) < result_length
+      if (index - left_pointer) < result_length
         result = [left_pointer, index] # update the result left and right pointers
         result_length = index - left_pointer + 1 # shrink the current window
       end
@@ -46,16 +46,16 @@ def minimum_window_substring(search_string, string_to_be_found)
   end
 
   # pick the left and right pointers
-  left, right_pointer= result
+  left, right_pointer = result
 
   if result_length != Float::INFINITY
-    search_string[left..right_pointer + 1]
+    search_string[left..right_pointer]
   else
     ''
   end
 end
 
-s = 'ADOBECODEBANC'
+s = 'ADOBECODEBANCWXT'
 t = 'ABC'
 
-p minimum_window_substring(s, t)
+p minimum_window_substring(s, t) #=> BANC
