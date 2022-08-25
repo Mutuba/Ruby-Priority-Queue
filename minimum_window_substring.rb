@@ -30,7 +30,7 @@ def minimum_window_substring(search_string, string_to_be_found)
     while have == need
       if (index - left_pointer) < result_length
         result = [left_pointer, index] # update the result left and right pointers
-        result_length = index - left_pointer + 1 # shrink the current window
+        result_length = index - left_pointer # shrink or update result_length
       end
 
       # pop from the left
