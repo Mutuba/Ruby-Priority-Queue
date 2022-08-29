@@ -1,4 +1,4 @@
-def three_sum(input_array, target) 
+def three_sum(input_array, target)
   hash = {}
 
   # works if no duplicates
