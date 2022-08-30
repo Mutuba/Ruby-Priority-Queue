@@ -47,53 +47,100 @@
 
 # p bigger_is_greater('ecdigf')
 
-def bigger_is_greater(test_string)
-  test_string_array = test_string.split('')
+# def bigger_is_greater(test_string)
+#   test_string_array = test_string.split('')
 
-  first_smaller_character_than_previous_index = 0
+#   first_smaller_character_than_previous_index = 0
 
-  # iterate from the end of string array until you find an element less than
-  # element before, and return the element's index else return no element found
-  (test_string_array.length - 1).downto(1).each do |index|
-    if test_string_array[index] > test_string_array[index - 1]
-      first_smaller_character_than_previous_index = index
-      break
+#   # iterate from the end of string array until you find an element less than
+#   # element before, and return the element's index else return no element found
+#   (test_string_array.length - 1).downto(1).each do |index|
+#     if test_string_array[index] > test_string_array[index - 1]
+#       first_smaller_character_than_previous_index = index
+#       break
+#     end
+#   end
+
+#   return 'not found' if first_smaller_character_than_previous_index == 0
+
+#   first_smaller_character_than_previous = test_string_array[first_smaller_character_than_previous_index - 1]
+#   next_smaller_index_than_previous = first_smaller_character_than_previous_index
+
+#   ((next_smaller_index_than_previous + 1)..(test_string_array.length - 1)).each do |index|
+#     if test_string_array[index] > first_smaller_character_than_previous && test_string_array[index] < test_string_array[next_smaller_index_than_previous]
+#       next_smaller_index_than_previous = index
+#     end
+#   end
+
+#   # swap the next smallest element found with the current smallest
+#   exchange_elements(test_string_array, first_smaller_character_than_previous_index - 1,
+#                     next_smaller_index_than_previous)
+#   # sort elements right of first_smaller_character_than_previous
+
+#   sorted_elements = test_string_array[first_smaller_character_than_previous_index, test_string_array.length - 1].sort!
+
+#   result = test_string_array[0..first_smaller_character_than_previous_index - 1]
+
+#   sorted_elements.each do |elem|
+#     result << elem
+#   end
+
+#   # join and return
+
+#   result.join('')
+# end
+
+# def exchange_elements(sample_array, i, j)
+#   temp = sample_array[i]
+#   sample_array[i] = sample_array[j]
+#   sample_array[j] = temp
+# end
+
+# p bigger_is_greater('ecdigf')
+
+def bigger_is_greater(input_string)
+    return '' if input_string == ''
+  
+    # create an array out of string
+    string_array = input_string.split('')
+    # find the first small xter smaller than previous (loop reverse)
+    first_smaller_character_than_previous_index = 0
+    (string_array.length - 1).downto(1).each do |index|
+      if string_array[index] > string_array[index - 1]
+        first_smaller_character_than_previous_index = index
+        break
+      end
     end
-  end
-
-  return 'not found' if first_smaller_character_than_previous_index == 0
-
-  first_smaller_character_than_previous = test_string_array[first_smaller_character_than_previous_index - 1]
-  next_smaller_index_than_previous = first_smaller_character_than_previous_index
-
-  ((next_smaller_index_than_previous + 1)..(test_string_array.length - 1)).each do |index|
-    if test_string_array[index] > first_smaller_character_than_previous && test_string_array[index] < test_string_array[next_smaller_index_than_previous]
-      next_smaller_index_than_previous = index
+  
+    first_smaller_character_than_previous = string_array[first_smaller_character_than_previous_index - 1]
+    next_bigger_character_index = first_smaller_character_than_previous_index
+    # try to find a xter bigger than current small but less than element next to
+    # first small xter
+    for index in (first_smaller_character_than_previous_index + 1)..(input_string.length - 1) do
+      if string_array[index] > first_smaller_character_than_previous &&
+         string_array[index] < string_array[next_bigger_character_index]
+        next_bigger_character_index = index
+      end
     end
+    # swap small xter with next smaller xter but less than element
+    exchange_elements(string_array, first_smaller_character_than_previous_index - 1, next_bigger_character_index)
+    # sort elements right of swapped element
+    unsorted_array =  string_array[first_smaller_character_than_previous_index..(string_array.length - 1)]
+    sorted_array = unsorted_array.sort!
+    left_part_array = string_array[0..first_smaller_character_than_previous_index - 1]
+    sorted_array.each do |elem|
+      left_part_array << elem
+    end
+  
+    # join  as it is an array of strings
+    left_part_array.join('')
   end
-
-  # swap the next smallest element found with the current smallest
-  exchange_elements(test_string_array, first_smaller_character_than_previous_index - 1,
-                    next_smaller_index_than_previous)
-  # sort elements right of first_smaller_character_than_previous
-
-  sorted_elements = test_string_array[first_smaller_character_than_previous_index, test_string_array.length - 1].sort!
-
-  result = test_string_array[0..first_smaller_character_than_previous_index - 1]
-
-  sorted_elements.each do |elem|
-    result << elem
+  
+  def exchange_elements(array, i, j)
+    temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
   end
-
-  # join and return
-
-  result.join('')
-end
-
-def exchange_elements(sample_array, i, j)
-  temp = sample_array[i]
-  sample_array[i] = sample_array[j]
-  sample_array[j] = temp
-end
-
-p bigger_is_greater('ecdigf')
+  
+  p bigger_is_greater('ecdigf')
+  
