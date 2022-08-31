@@ -13,14 +13,14 @@ def word_break(search_string, word_list)
       break if dp[index]
     end
   end
-  # will be true if the word can be broken 
+  # will be true if the word can be broken
   dp[0]
 end
 
 # s = 'catsandog'
 # a = %w[ap app appl ep epen]
 # a = ["cats","dog","sand","and","cat"]
-s = "javapython"
-a = ["java","python"]
+s = 'javapython'
+a = %w[java python]
 
 p word_break(s, a)
