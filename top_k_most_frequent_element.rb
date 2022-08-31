@@ -42,11 +42,11 @@ def top_k_most_frequent_elements(input_array, k)
   # loop in reverse so as to start with most frequent depending on hash count
   freq_array.reverse.each do |inner_array|
     inner_array.each do |element|
-        result << element
-        if result.length == k
-            return result
-            break
-        end
+      result << element
+      if result.length == k
+        return result
+        break
+      end
     end
   end
 end

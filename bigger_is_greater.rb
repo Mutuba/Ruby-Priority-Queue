@@ -99,48 +99,47 @@
 # p bigger_is_greater('ecdigf')
 
 def bigger_is_greater(input_string)
-    return '' if input_string == ''
-  
-    # create an array out of string
-    string_array = input_string.split('')
-    # find the first small xter smaller than previous (loop reverse)
-    first_smaller_character_than_previous_index = 0
-    (string_array.length - 1).downto(1).each do |index|
-      if string_array[index] > string_array[index - 1]
-        first_smaller_character_than_previous_index = index
-        break
-      end
+  return '' if input_string == ''
+
+  # create an array out of string
+  string_array = input_string.split('')
+  # find the first small xter smaller than previous (loop reverse)
+  first_smaller_character_than_previous_index = 0
+  (string_array.length - 1).downto(1).each do |index|
+    if string_array[index] > string_array[index - 1]
+      first_smaller_character_than_previous_index = index
+      break
     end
-  
-    first_smaller_character_than_previous = string_array[first_smaller_character_than_previous_index - 1]
-    next_bigger_character_index = first_smaller_character_than_previous_index
-    # try to find a xter bigger than current small but less than element next to
-    # first small xter
-    for index in (first_smaller_character_than_previous_index + 1)..(input_string.length - 1) do
-      if string_array[index] > first_smaller_character_than_previous &&
-         string_array[index] < string_array[next_bigger_character_index]
-        next_bigger_character_index = index
-      end
-    end
-    # swap small xter with next smaller xter but less than element
-    exchange_elements(string_array, first_smaller_character_than_previous_index - 1, next_bigger_character_index)
-    # sort elements right of swapped element
-    unsorted_array =  string_array[first_smaller_character_than_previous_index..(string_array.length - 1)]
-    sorted_array = unsorted_array.sort!
-    left_part_array = string_array[0..first_smaller_character_than_previous_index - 1]
-    sorted_array.each do |elem|
-      left_part_array << elem
-    end
-  
-    # join  as it is an array of strings
-    left_part_array.join('')
   end
-  
-  def exchange_elements(array, i, j)
-    temp = array[i]
-    array[i] = array[j]
-    array[j] = temp
+
+  first_smaller_character_than_previous = string_array[first_smaller_character_than_previous_index - 1]
+  next_bigger_character_index = first_smaller_character_than_previous_index
+  # try to find a xter bigger than current small but less than element next to
+  # first small xter
+  ((first_smaller_character_than_previous_index + 1)..(input_string.length - 1)).each do |index|
+    if string_array[index] > first_smaller_character_than_previous &&
+       string_array[index] < string_array[next_bigger_character_index]
+      next_bigger_character_index = index
+    end
   end
-  
-  p bigger_is_greater('ecdigf')
-  
+  # swap small xter with next smaller xter but less than element
+  exchange_elements(string_array, first_smaller_character_than_previous_index - 1, next_bigger_character_index)
+  # sort elements right of swapped element
+  unsorted_array =  string_array[first_smaller_character_than_previous_index..(string_array.length - 1)]
+  sorted_array = unsorted_array.sort!
+  left_part_array = string_array[0..first_smaller_character_than_previous_index - 1]
+  sorted_array.each do |elem|
+    left_part_array << elem
+  end
+
+  # join  as it is an array of strings
+  left_part_array.join('')
+end
+
+def exchange_elements(array, i, j)
+  temp = array[i]
+  array[i] = array[j]
+  array[j] = temp
+end
+
+p bigger_is_greater('ecdigf')
