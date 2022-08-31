@@ -134,4 +134,4 @@ q << Element.new('pearl', 6)
 q << Element.new('paul', 7)
 q << Element.new('oliver', 8)
 
-p q.pop.name # => "foo"oliver
+p q.pop.name # => "oliver
