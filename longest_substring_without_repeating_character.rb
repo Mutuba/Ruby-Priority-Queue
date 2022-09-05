@@ -18,7 +18,7 @@ def longest_substring_with_no_repeating_character(input_string)
       j += 1
     end
   end
-  character_set.to_a.join()
+  character_set.to_a.join
 end
 
 s = 'abbac'
