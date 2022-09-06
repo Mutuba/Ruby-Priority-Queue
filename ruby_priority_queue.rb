@@ -64,6 +64,7 @@ class PriorityQueue
     exchange(1, @elements.size - 1)
 
     # remove the last element of the list
+    # this was initially the root node
     last_element_index = @elements.size - 1
     max = @elements[last_element_index]
     @elements.delete_at(last_element_index)
