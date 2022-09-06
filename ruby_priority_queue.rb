@@ -118,6 +118,7 @@ class PriorityQueue
       smallest_index = child_index + 1
     end
 
+    # if element is in position
     return unless smallest_index != index
 
     exchange(smallest_index, index)
