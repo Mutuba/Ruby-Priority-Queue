@@ -102,7 +102,7 @@ class PriorityQueue
     # # stop if we reach the bottom of the tree
     return if child_index > @elements.size - 1
 
-    # make sure we get the largest child
+    # make sure we get the smallest child
 
     left_element = @elements[child_index]
     right_element = @elements[child_index + 1]
