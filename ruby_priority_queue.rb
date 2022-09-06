@@ -138,6 +138,6 @@ q << Element.new('paul', 7)
 q << Element.new('oliver', 8)
 
 p q.pop.name # => "oliver
+p q.pop.name # => "paul
+p q.pop.name # => "pearl
 p q.pop.name # => "daniel
-p q.pop.name # => "oliver
-p q.pop.name # => "oliver
