@@ -25,8 +25,8 @@ def longest_substring_with_k_distinct_character(input_string, k)
       right += 1
       count += 1
     end
-    current_max_substring = input_string[index...right-1]
-    max_string = current_max_substring if current_max_substring.length  > max_string.length
+    current_max_substring = input_string[index...right - 1]
+    max_string = current_max_substring if current_max_substring.length > max_string.length
     hash.clear
   end
 

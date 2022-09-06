@@ -9,6 +9,8 @@ class Element
   end
 
   def <=>(other)
+    return if other.nil?
+
     @priority <=> other.priority
   end
 end
@@ -65,13 +67,14 @@ class PriorityQueue
 
     # remove the last element of the list
     # this was initially the root node
-    last_element_index = @elements.size - 1
-    max = @elements[last_element_index]
-    @elements.delete_at(last_element_index)
+    last_element = @elements[@elements.size - 1]
+
+    @elements.delete_at(@elements.size - 1)
+    # max = @elements.pop
 
     # and make sure the tree is ordered again
     bubble_down(1)
-    max
+    last_element
   end
 
   def bubble_up(index)
@@ -105,24 +108,22 @@ class PriorityQueue
 
     # make sure we get the smallest child
 
-    left_element = @elements[child_index]
-    right_element = @elements[child_index + 1]
+    largest_index = index
 
-    smallest = @elements[index]
+    # if left child is larger than root (index), child index is left index
+    largest_index = child_index if !@elements[child_index].nil? &&
+                                   @elements[child_index] > @elements[largest_index]
 
-    smallest_index = index
-
-    if left_element < smallest
-      smallest_index = child_index
-    elsif right_element < smallest
-      smallest_index = child_index + 1
+    if @elements[child_index + 1] != nil &&
+       @elements[child_index + 1] > @elements[largest_index]
+      largest_index = child_index + 1
     end
 
     # if element is in position
-    return unless smallest_index != index
+    return unless largest_index != index
 
-    exchange(smallest_index, index)
-    bubble_down(smallest_index)
+    exchange(largest_index, index)
+    bubble_down(largest_index)
   end
 end
 
@@ -136,4 +137,7 @@ q << Element.new('pearl', 6)
 q << Element.new('paul', 7)
 q << Element.new('oliver', 8)
 
+p q.pop.name # => "oliver
+p q.pop.name # => "daniel
+p q.pop.name # => "oliver
 p q.pop.name # => "oliver
