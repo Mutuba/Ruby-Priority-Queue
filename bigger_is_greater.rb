@@ -112,7 +112,7 @@ def bigger_is_greater(input_string)
     end
   end
 
-  return 'not answer' if first_smaller_character_than_previous_index == 0
+  return 'no answer' if first_smaller_character_than_previous_index == 0
   first_smaller_character_than_previous = string_array[first_smaller_character_than_previous_index - 1]
   next_bigger_character_index = first_smaller_character_than_previous_index
   # try to find a xter bigger than current small but less than element next to
