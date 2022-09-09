@@ -1,8 +1,8 @@
 # def anagram_list(word)
-#   words = File.readlines('/usr/share/dict/words')
+#   words = File.foreach('/usr/share/dict/words').map(&:chomp)
 
 #   words_hash = words.each_with_object(Hash.new([])) do |word, hash|
-#     hash[word.chomp.chars.sort.join] += [word.chomp]
+#     hash[word.chars.sort.join] += [word]
 #   end
 
 #   words_hash[word.chars.sort.join]
