@@ -102,7 +102,8 @@ def bigger_is_greater(input_string)
   return '' if input_string == ''
 
   # create an array out of string
-  string_array = input_string.split('')
+  # chars returns an array of characters same as split("")
+  string_array = input_string.chars
   # find the first small xter smaller than previous (loop reverse)
   first_smaller_character_than_previous_index = 0
   (string_array.length - 1).downto(1).each do |index|
@@ -113,6 +114,7 @@ def bigger_is_greater(input_string)
   end
 
   return 'no answer' if first_smaller_character_than_previous_index == 0
+
   first_smaller_character_than_previous = string_array[first_smaller_character_than_previous_index - 1]
   next_bigger_character_index = first_smaller_character_than_previous_index
   # try to find a xter bigger than current small but less than element next to
