@@ -11,7 +11,7 @@
 # p anagram_list('suacal')
 
 def generate_anagrams(word)
-    words_list = File.readlines('/usr/share/dict/words').map(&:chomp)
+    words_list = File.foreach('/usr/share/dict/words').map(&:chomp)
     dict = Hash.new { |h, k| h[k] = [] }
 
     words_list.each do |word|
