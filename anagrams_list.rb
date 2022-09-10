@@ -11,14 +11,14 @@
 # p anagram_list('suacal')
 
 def generate_anagrams(word)
-    words_list = File.foreach('/usr/share/dict/words').map(&:chomp)
-    dict = Hash.new { |h, k| h[k] = [] }
+  words_list = File.foreach('/usr/share/dict/words').map(&:chomp)
+  dict = Hash.new { |h, k| h[k] = [] }
 
-    words_list.each do |word|
-        dict[word.chars.sort.join] << word
-    end
+  words_list.each do |word|
+    dict[word.chars.sort.join] << word
+  end
 
-    dict[word.chars.sort.join]
+  dict[word.chars.sort.join]
 end
 
 p generate_anagrams('saucal')
