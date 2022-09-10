@@ -7,7 +7,9 @@ def word_break(search_string, word_list)
   (search_string.length - 1).downto(0).each do |index|
     word_list.each do |word|
       if (index + word.length) <= search_string.length &&
+         # word.length will be off for words at the biggining and middle
          search_string[index...(index + word.length)] == word
+
         dp[index] = dp[index + word.length]
       end
       break if dp[index]
