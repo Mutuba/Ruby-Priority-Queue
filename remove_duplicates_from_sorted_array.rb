@@ -10,6 +10,8 @@ def remove_duplicates_from_sorted_array(input_array)
   fast = 1
   while fast < input_array.size
     if input_array[slow] != input_array[fast]
+      # move slow one index forward, so then the unique element is
+      # just ahead of current element i.e input_array[slow]
       slow += 1
       input_array[slow] = input_array[fast]
 
