@@ -60,6 +60,6 @@ def four_sum(nums, target)
   res
 end
 
-s = [1 ,0, -1, 0, -2, 2]
+s = [1, 0, -1, 0, -2, 2]
 
 p four_sum(s, 0)
