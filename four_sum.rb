@@ -19,6 +19,8 @@ def four_sum(nums, target)
 
   (0..length - 3).each do |i|
     # skip duplicates as the set of numbers should be unique
+    # greater than zero to ensure the comparison is for instance
+    # index 1 vs index 0
     next if (nums[i] == nums[i - 1]) && (i > 0)
 
     (i + 1..length - 2).each do |j|
