@@ -1,7 +1,7 @@
 def remove_duplicates_from_sorted_array(input_array)
   # taking advantage of a sorted array
   # have two pointers both running from the biggining
-  # of the array i.e slow and fast pointers at indeces 0 and 1 respectively
+  # of the array i.e slow and fast pointers at indices 0 and 1 respectively
   # whenever you encounter a unique element at fast index copy it to slow index
   # else for duplicate (elem[slow] == elem[fast]), move the fast pointer
 
@@ -19,7 +19,8 @@ def remove_duplicates_from_sorted_array(input_array)
     fast += 1
   end
 
-  slow + 1
+  slow + 1 # common to return the size
+  input_array[slow..slow+1].sort
 end
 
 sample_array = [2, 2, 2, 2, 2, 3, 3, 3]
