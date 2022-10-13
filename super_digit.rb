@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def super_digit(input_num, k)
   ultimate_array = input_num.to_s.split('') * k
   # return early if single element

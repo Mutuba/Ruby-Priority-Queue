@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def remove_duplicates_from_sorted_array(input_array)
   # taking advantage of a sorted array
   # have two pointers both running from the biggining
@@ -20,7 +22,7 @@ def remove_duplicates_from_sorted_array(input_array)
   end
 
   slow + 1 # common to return the size
-  input_array[slow..slow+1].sort
+  input_array[slow..slow + 1].sort
 end
 
 sample_array = [2, 2, 2, 2, 2, 3, 3, 3]

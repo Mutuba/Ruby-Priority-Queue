@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def anagram_list(word)
   words = File.foreach('/usr/share/dict/words').map(&:chomp)
 

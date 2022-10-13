@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Person Class
 class Person
   def initialize(attributes); end
@@ -15,7 +17,7 @@ end
 
 # Factory class
 class PersonFactory
-  TYPES = { employee: Employee, boss: Boss }
+  TYPES = { employee: Employee, boss: Boss }.freeze
   def self.for(type, attributes)
     (TYPES[type] || Person).new(attributes)
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target?
 # Find all unique quadruplets in the array which gives the sum of target.
 
@@ -21,7 +23,7 @@ def four_sum(nums, target)
     # skip duplicates as the set of numbers should be unique
     # greater than zero to ensure the comparison is for instance
     # index 1 vs index 0
-    next if (nums[i] == nums[i - 1]) && (i > 0)
+    next if (nums[i] == nums[i - 1]) && i.positive?
 
     (i + 1..length - 2).each do |j|
       l = j + 1

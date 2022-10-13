@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def word_break(search_string, word_list)
   # if we can ever get to the last index, then we return true
   dp = [false] * search_string.length
@@ -8,6 +10,7 @@ def word_break(search_string, word_list)
     word_list.each do |word|
       if (index + word.length) <= search_string.length &&
          # word.length will be off for words at the biggining and middle
+         # ... is exlusive of last index as word.length will be 4 when we should stop at index 3
          search_string[index...(index + word.length)] == word
 
         dp[index] = dp[index + word.length]
@@ -22,7 +25,7 @@ end
 # s = 'catsandog'
 # a = %w[ap app appl ep epen]
 # a = ["cats","dog","sand","and","cat"]
-s = 'javapython'
-a = %w[java python]
+s = 'javapythonruby'
+a = %w[java python ruby]
 
 p word_break(s, a)

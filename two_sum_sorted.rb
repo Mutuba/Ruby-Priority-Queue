@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def two_sum_sorted(input_array, target)
   left_pointer = 0
   right_pointer = input_array.length - 1

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def reverse_string(input_string)
   # need to be clear whether whether it is a string of characters
   # or a string of words depending you call split method appropriately

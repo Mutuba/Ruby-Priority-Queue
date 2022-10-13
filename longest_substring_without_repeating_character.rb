@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'set'
 
 def longest_substring_with_no_repeating_character(input_string)

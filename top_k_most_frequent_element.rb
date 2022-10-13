@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # def top_k_most_frequent_elements(arr, k)
 #   hash = {}
 

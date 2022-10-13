@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def is_anagram(first_word, second_word)
   first_word_sorted = first_word.chars.sort.join
   second_word_sorted = second_word.chars.sort.join

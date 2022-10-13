@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def two_sum(input_array, target)
   array_hash = {}
   result = []

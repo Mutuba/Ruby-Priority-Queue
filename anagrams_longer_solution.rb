@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def is_anagram?(first_word, second_word)
   letters_list = second_word.split(‘’)
   position1 = 0

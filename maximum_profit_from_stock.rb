@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 # time complexity is O(n)
 # space complexity is O(1)

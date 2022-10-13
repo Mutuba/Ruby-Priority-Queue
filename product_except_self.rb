@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # brute force approach
 # time complexity O(n2)
 def product_except_self(input_array)

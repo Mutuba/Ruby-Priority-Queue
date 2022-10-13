@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def three_sum(input_array, target)
   hash = {}
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def minimum_window_substring(search_string, string_to_be_found)
   return '' if string_to_be_found == ''
 

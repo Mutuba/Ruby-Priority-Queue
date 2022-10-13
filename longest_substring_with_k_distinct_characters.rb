@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 def longest_substring_with_k_distinct_character(input_string, k)
   max_string = ''
   current_max_substring = ''
   hash = {}
 
-  return nil if input_string.length == 0 || k <= 0 || k > input_string.length || input_string == ''
+  return nil if input_string.length.zero? || k <= 0 || k > input_string.length || input_string == ''
 
   # complexity is O(k) for inner loop
   # and O(n) for the outer loop hence O(n)

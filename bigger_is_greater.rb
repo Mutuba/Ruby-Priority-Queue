@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # def bigger_is_greater(input_array)
 #   string_array = input_array.split('')
 
@@ -113,7 +115,7 @@ def bigger_is_greater(input_string)
     end
   end
 
-  return 'no answer' if first_smaller_character_than_previous_index == 0
+  return 'no answer' if first_smaller_character_than_previous_index.zero?
 
   first_smaller_character_than_previous = string_array[first_smaller_character_than_previous_index - 1]
   next_bigger_character_index = first_smaller_character_than_previous_index
