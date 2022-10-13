@@ -10,6 +10,7 @@ def three_sum(input_array, target)
     difference = target - element
     (index + 1..input_array.length - 1).each.with_index do |element, inner_index|
       num = difference - element
+      # make use of hash to avoid inner index being same as num
       result = [hash[num], inner_index, index] if hash.key?(num) && hash[num] != inner_index
     end
   end
