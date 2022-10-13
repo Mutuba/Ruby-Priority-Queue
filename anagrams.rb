@@ -9,10 +9,8 @@ def is_anagram(first_word, second_word)
   while position < first_word.length && matches
     if first_word_sorted[position] == second_word_sorted[position]
       position += 1
-
     else
       matches = false
-
     end
   end
   matches
