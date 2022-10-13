@@ -4,7 +4,7 @@ def reverse_string(input_string)
   # say it is a string of characters
   character_array = input_string.chars
   result = []
-  input_string.size.times { result << character_array.pop }
+  character_array.size.times { result << character_array.pop }
 
   result.join
 end
