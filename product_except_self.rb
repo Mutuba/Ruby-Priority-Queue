@@ -6,6 +6,8 @@ def product_except_self(input_array)
   result = []
   input_array.length.times { result << 0 }
 
+  # result = [0] * input_array.length
+
   input_array.each.with_index do |_, index|
     current_product = 1
     input_array.each.with_index do |elem, inner_index|
