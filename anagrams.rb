@@ -21,6 +21,8 @@ def is_anagram(first_word, second_word)
   first_word_sorted = first.chars.sort.join
   second_word_sorted = second_word.chars.sort.join
 
+  return false if first_word_sorted.length != second_word.length
+
   position = 0
   character_matches = true
 
