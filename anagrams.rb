@@ -18,6 +18,8 @@
 
 
 def is_anagram(first_word, second_word)
+  return false unless first_word || second_word
+  
   return false if first_word_sorted.length != second_word.length
 
   first_word_sorted = first.chars.sort.join
