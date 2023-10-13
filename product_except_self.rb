@@ -1,5 +1,6 @@
 # brute force approach
 # time complexity O(n2)
+
 def product_except_self(input_array)
   result = []
   input_array.length.times { result << 0 }
