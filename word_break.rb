@@ -22,6 +22,7 @@ end
 # s = 'catsandog'
 # a = %w[ap app appl ep epen]
 # a = ["cats","dog","sand","and","cat"]
+
 s = 'javapython'
 a = %w[java python]
 
