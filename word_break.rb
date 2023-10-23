@@ -1,6 +1,7 @@
 def word_break(search_string, word_list)
   # if we can ever get to the last index, then we return true
   dp = [false] * search_string.length
+  
   dp[search_string.length] = true
 
   # loop over the string from end to start
