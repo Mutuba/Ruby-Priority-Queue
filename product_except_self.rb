@@ -18,5 +18,5 @@ def product_except_self(input_array)
   result
 end
 
-s = [2, 1, 3, 4]
-p product_except_self(s)
+test_array = [2, 1, 3, 4]
+p product_except_self(test_array)
