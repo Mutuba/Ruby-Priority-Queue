@@ -25,7 +25,6 @@ end
 # a = ["cats","dog","sand","and","cat"]
 
 s = 'javapython'
-
 a = %w[java python]
 
 p word_break(s, a)
