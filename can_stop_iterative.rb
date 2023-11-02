@@ -1,5 +1,6 @@
 def can_stop_iterative(runway, initial_speed, initial_position = 0)
   return false if initial_speed < 0
+  
   return true if initial_speed == 0
 
   queue = [[initial_position, initial_speed]] # Initialize a queue with initial position and speed
