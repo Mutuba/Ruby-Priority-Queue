@@ -27,7 +27,6 @@ def is_anagram(first_word, second_word)
 
   position = 0
   character_matches = true
-
   while position < first_word_sorted.length && character_matches
     
     if first_word_sorted[position] == second_word_sorted[position]
