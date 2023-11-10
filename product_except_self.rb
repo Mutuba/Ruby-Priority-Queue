@@ -46,7 +46,6 @@ p product_except_self(test_array)
 
 
 # the O(n) solution
-
 def product_except_self(input_array)
   input_product = input_array.reduce(:*)
   input_array.map { |element| input_product / element }
