@@ -51,4 +51,5 @@ def product_except_self(input_array)
 end
 
 test_array = [2, 1, 3, 4]
+
 p product_except_self(test_array)
