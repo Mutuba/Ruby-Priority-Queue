@@ -44,7 +44,6 @@ end
 test_array = [2, 1, 3, 4]
 p product_except_self(test_array)
 
-
 # the O(n) solution
 def product_except_self(input_array)
   input_product = input_array.reduce(:*)
