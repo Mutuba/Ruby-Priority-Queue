@@ -19,10 +19,10 @@ def product_except_self(input_array)
 end
 
 test_array = [2, 1, 3, 4]
+
 p product_except_self(test_array)
 
-
-# rafoctorings using each_index as we don't need the element
+# rafactorings using each_index as we don't need the element
 
 def product_except_self(input_array)
   result = []
