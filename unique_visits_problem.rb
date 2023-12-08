@@ -46,3 +46,26 @@ end
 loyal_customers = find_loyal_customers('day1.log', 'day2.log')
 
 puts "Loyal Customers: #{loyal_customers}"
+
+
+# We can do better
+# We need to reduce memory footprint of parse_file method. 
+# Duplicates can arise from customer_id or page_id
+def parse_file(file_path)
+  entries = []
+  seen_entries = Set.new
+
+  File.readlines(file_path).each do |line|
+    timestamp, page_id, customer_id = line.split
+    entry = { timestamp: timestamp, page_id: page_id.to_i, customer_id: customer_id.to_i }
+
+    unique_key = [entry[:page_id], entry[:customer_id]]
+
+    unless seen_entries.include?(unique_key)
+      entries << entry
+      seen_entries << unique_key
+    end
+  end
+
+  entries
+end
