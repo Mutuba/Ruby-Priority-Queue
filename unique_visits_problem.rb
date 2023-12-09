@@ -89,7 +89,7 @@ def loyal_customers(log_file_path_day1, log_file_path_day2)
   end
 
   # Process log_day2
-  common_customers = Set.new
+  loyal_customers = Set.new
   log_day2.each do |entry|
     customer_id = entry[:customer_id]
     page_id = entry[:page_id]
@@ -99,11 +99,11 @@ def loyal_customers(log_file_path_day1, log_file_path_day2)
       customer_pages[customer_id].add(page_id)
 
       # If the customer has at least two unique pages, mark as common customer
-      common_customers.add(customer_id) if customer_pages[customer_id].size >= 2
+      loyal_customers.add(customer_id) if customer_pages[customer_id].size >= 2
     end
   end
 
-  common_customers.to_a
+  loyal_customers.to_a
 end
 
 # Example Usage
