@@ -51,6 +51,7 @@ puts "Loyal Customers: #{loyal_customers}"
 # We can do better
 # We need to reduce memory footprint of parse_file method. 
 # Duplicates can arise from customer_id or page_id
+
 def parse_file(file_path)
   entries = []
   seen_entries = Set.new
