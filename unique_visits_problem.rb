@@ -31,7 +31,7 @@ def find_loyal_customers(log_file1, log_file2)
 
     # common_pages = pages_day1 & pages_day2 # intersection
 
-    unique_pages = pages_day1 | pages_day2 # union
+    unique_pages = pages_day1 | pages_day2 # union (distinct pages)
 
 
     if unique_pages.length >= 2
