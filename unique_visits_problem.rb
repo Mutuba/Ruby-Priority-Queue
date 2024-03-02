@@ -19,8 +19,8 @@ def parse_log(file_path)
 end
 
 def find_loyal_customers(log_file1, log_file2)
-  entries_day1 = parse_log(log_file1)
-  entries_day2 = parse_log(log_file2)
+  entries_day1 = parse_log(log_file1) # day 1 log objects
+  entries_day2 = parse_log(log_file2) # day 2 log objects
 
   customers_day1 = entries_day1.map { |entry| entry[:customer_id] }.uniq
   loyal_customers = []
