@@ -1,7 +1,7 @@
 def longest_substring_with_atleast_k_distinct_character(input_string, k)
   max_string = ''
   (0..(input_string.length - 1)).each do |index|
-    hash = {}
+    hash = Hash.new(0)
     right = index
     while right < input_string.length
       hash[input_string[right]] = 1
