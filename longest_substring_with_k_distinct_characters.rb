@@ -39,14 +39,7 @@
 
 
 def longest_substring_with_k_distinct_character(input_string, k)
-  # Steps
-  # 1. hash to keep track of unique xters count
-  # 2. loop while still within input_string length
-  # 3. Create different windows on input_string and compare to come up with max
-  # 4. Have index, that is moves from left to right as well as right that starts when equal to index
-  
   max_string = ''
-  current_max_substring = ''
   (0..(input_string.length - 1)).each do |index|
     hash = {}
     count =  0
@@ -57,12 +50,16 @@ def longest_substring_with_k_distinct_character(input_string, k)
         next
       end
 
+      if count == k
+        break
+      end
+
       hash[input_string[right]] = 1
       right += 1
       count += 1
     end
 
-    current_max_substring = input_string[index...right-1]
+    current_max_substring = input_string[index...right]
     max_string = current_max_substring if current_max_substring.length > max_string.length
   end
   max_string
