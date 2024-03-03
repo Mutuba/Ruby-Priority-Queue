@@ -111,3 +111,42 @@ log_file_path_day1 = 'path/to/log/day1.txt'
 log_file_path_day2 = 'path/to/log/day2.txt'
 
 puts loyal_customers(log_file_path_day1, log_file_path_day2)
+
+
+
+# if we needed customers to have visits on bith day 1 & 2 for them to be considered loyal
+
+def loyal_customers(log_file_path_day1, log_file_path_day2)
+  log_day1 = parse_file(log_file_path_day1)
+  log_day2 = parse_file(log_file_path_day2)
+
+  customer_pages_day1 = Hash.new { |hash, key| hash[key] = Set.new }
+  customer_pages_day2 = Hash.new { |hash, key| hash[key] = Set.new }
+
+  # Process log_day1
+  log_day1.each do |entry|
+    customer_id = entry[:customer_id]
+    page_id = entry[:page_id]
+
+    customer_pages_day1[customer_id].add(page_id)
+  end
+
+  # Process log_day2
+  log_day2.each do |entry|
+    customer_id = entry[:customer_id]
+    page_id = entry[:page_id]
+
+    customer_pages_day2[customer_id].add(page_id)
+  end
+
+  # Find loyal customers
+  loyal_customers = Set.new
+  customer_pages_day1.each do |customer_id, pages_day1|
+    pages_day2 = customer_pages_day2[customer_id]
+    if pages_day1.size >= 1 && pages_day2 && pages_day2.size >= 1
+      loyal_customers.add(customer_id)
+    end
+  end
+
+  loyal_customers.to_a
+end
