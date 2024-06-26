@@ -1,26 +1,38 @@
 require 'set'
 
 def longest_substring_with_no_repeating_character(input_string)
-  # initialize a set to keep unique character
+  # Initialize a set to keep unique characters
   character_set = Set.new
-  # initialize pointers
+  # Initialize pointers
   i = 0
   j = 0
   longest = 0
-  while i < input_string.length && j < input_string.length
-    # move left pointer if set not unique
-    if character_set.include?(input_string[j])
+  start = 0
+  
+  while j < input_string.length
+    if !character_set.include?(input_string[j])
+      character_set.add(input_string[j])
+      j += 1
+      if j - i > longest
+        longest = j - i
+        start = i
+      end
+    else
       character_set.delete(input_string[i])
       i += 1
-    else
-      character_set << input_string[j]
-      longest = character_set.length > longest ? character_set.length : longest
-      j += 1
     end
   end
-  character_set.to_a.join
+
+  input_string[start, longest]
 end
 
-s = 'abbac'
+# Test cases
+s1 = 'abcabcbb'
+s2 = 'bbbbb'
+s3 = 'pwwkew'
+s4 = 'abbac'
 
-p longest_substring_with_no_repeating_character(s)
+p longest_substring_with_no_repeating_character(s1) # ➞ "abc"
+p longest_substring_with_no_repeating_character(s2) # ➞ "b"
+p longest_substring_with_no_repeating_character(s3) # ➞ "wke"
+p longest_substring_with_no_repeating_character(s4) # ➞ "bac"
