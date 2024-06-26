@@ -8,6 +8,7 @@ def longest_substring_with_no_repeating_character(input_string)
   j = 0
   longest = 0
   start = 0
+  longest_substring= ""
   
   while j < input_string.length
     if !character_set.include?(input_string[j])
@@ -15,7 +16,7 @@ def longest_substring_with_no_repeating_character(input_string)
       j += 1
       if j - i > longest
         longest = j - i
-        start = i
+        longest_substring = input_string[i...j]
       end
     else
       character_set.delete(input_string[i])
@@ -23,7 +24,7 @@ def longest_substring_with_no_repeating_character(input_string)
     end
   end
 
-  input_string[start, longest]
+  longest_substring
 end
 
 # Test cases
