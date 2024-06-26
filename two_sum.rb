@@ -3,7 +3,7 @@ def two_sum(input_array, target)
   result = []
   input_array.each.with_index do |element, index|
     difference = target - element
-    result = [array_hash[difference], index] if array_hash.key?(difference)
+    result = [array_hash[difference], index] if array_hash.key?(difference) && array_hash[difference] != index
     array_hash[element] = index
   end
 
