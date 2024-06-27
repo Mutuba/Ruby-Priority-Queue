@@ -33,7 +33,7 @@ def can_stop_iterative(runway, initial_position=0, initial_speed)
     return true if initial_speed == 0
 
     # initialize a queue with the initial position and speed
-
+    # we can create an actual queue
     my_array  =  [[initial_position, initial_speed]]
 
     while my_array.any?
