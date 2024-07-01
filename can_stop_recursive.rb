@@ -1,17 +1,13 @@
-def can_stop_recursive(runway, speed, position = 0)
+def can_stop_recursive(runway, initial_speed, initial_position = 0)
+  return false if initial_speed < 0
+  return true if initial_speed == 0
+  return false if initial_position < 0 || initial_position >= runway.length
 
-  return true if speed == 0
-
-  # speed cannot be negative, we cannot land on a spike and we need to be within array bounds
-  if position < 0 || position >= runway.length
-    return false
+  # Try three possible speeds: current speed, current speed - 1, current speed + 1
+  [initial_speed, initial_speed - 1, initial_speed + 1].each do |new_speed|
+    next if new_speed < 0 # Skip negative speeds
+    return true if can_stop_recursive(runway, new_speed, initial_position + new_speed)
   end
 
-[speed, speed -1, speed + 1].each do |speed|
-  next if speed < 0 
-  if can_stop_recursive(runway, speed, position + speed)
-    return true
-  end
-  return false
-end
+  false
 end
