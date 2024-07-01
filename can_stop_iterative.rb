@@ -16,7 +16,6 @@ def can_stop_iterative(runway, initial_speed, initial_position = 0)
     
     [speed, speed - 1, speed + 1].each do |new_speed|
       next if new_speed < 0 # Skip negative speeds
-
       # Enqueue the new position and speed
       queue.push([position + new_speed, new_speed])
     end
