@@ -5,7 +5,7 @@ def product_except_self(input_array)
   result = []
   input_array.length.times { result << 0 }
 
-  input_array.eachindex do |index|
+  input_array.each_index do |index|
     current_product = 1
     input_array.each.with_index do |elem, inner_index|
       next if index == inner_index
@@ -23,6 +23,7 @@ test_array = [2, 1, 3, 4]
 p product_except_self(test_array)
 
 # rafactorings using each_index as we don't need the element
+# O(n2)
 
 def product_except_self(input_array)
   result = []
