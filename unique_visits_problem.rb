@@ -11,7 +11,7 @@ def parse_log(file_path)
   log_entries = []
 
   File.foreach(file_path) do |line|
-    timestamp, page_id, customer_id = line.split.map(&:strip)
+    timestamp, page_id, customer_id = line.split
     log_entries << { timestamp: timestamp, page_id: page_id, customer_id: customer_id }
   end
 
@@ -19,8 +19,8 @@ def parse_log(file_path)
 end
 
 def find_loyal_customers(log_file1, log_file2)
-  entries_day1 = parse_log(log_file1) # day 1 log objects
-  entries_day2 = parse_log(log_file2) # day 2 log objects
+  entries_day1 = parse_log(log_file1) # day 1 log objects (array of log objects)
+  entries_day2 = parse_log(log_file2) # day 2 log objects (array of log objects)
 
   customers_day1 = entries_day1.map { |entry| entry[:customer_id] }.uniq
   loyal_customers = []
@@ -56,7 +56,7 @@ def parse_file(file_path)
   entries = []
   seen_entries = Set.new
 
-  File.readlines(file_path).each do |line|
+  File.foreach(file_path).each do |line|
     timestamp, page_id, customer_id = line.split
     entry = { timestamp: timestamp, page_id: page_id.to_i, customer_id: customer_id.to_i }
 
