@@ -7,7 +7,6 @@ def longest_substring_with_no_repeating_character(input_string)
   i = 0
   j = 0
   longest = 0
-  start = 0
   longest_substring= ""
   
   while j < input_string.length
