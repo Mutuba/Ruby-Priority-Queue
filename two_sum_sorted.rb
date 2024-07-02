@@ -5,13 +5,22 @@ def two_sum_sorted(nums, target)
   while left < right
     current_sum = nums[left] + nums[right]
 
-    if current_sum == target
-      return [left, right] 
-    elsif current_sum < target
-      left += 1  
-    else
-      right -= 1 
+    case current_sum <=> target
+    when 0
+      return [left, right]
+    when 1
+      right -= 1
+    when -1
+      left += 1
     end
+
+    # if current_sum == target
+    #   return [left, right] 
+    # elsif current_sum < target
+    #   left += 1  
+    # else
+    #   right -= 1 
+    # end
   end
 
   return nil 
