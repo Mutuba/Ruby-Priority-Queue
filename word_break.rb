@@ -13,6 +13,8 @@ def word_break(s, word_dict)
       # and if s[start_index...end_index] exists in the dictionary (word_dict).
       # if the segment exists in the dictionary
       if dp[start_index] && word_dict.include?(s[start_index...end_index])
+        # By setting dp[end_index] = true, we mark that the substring s[0...end_index] 
+        # can indeed be segmented into valid words from word_dict
         dp[end_index] = true
         break
       end
