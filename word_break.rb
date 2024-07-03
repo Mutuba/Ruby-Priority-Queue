@@ -1,6 +1,6 @@
 def word_break(s, word_dict)
   # Base case: empty string can always be segmented
-  return true if s.empty?  
+  return true if s.blank?  
 
   n = s.length
   dp = Array.new(n + 1, false)
