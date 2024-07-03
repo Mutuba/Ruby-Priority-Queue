@@ -1,30 +1,38 @@
-def word_break(search_string, word_list)
-  # if we can ever get to the last index, then we return true
-  dp = [false] * search_string.length
-  dp[search_string.length] = true
+def word_break(s, word_dict)
+  # Base case: empty string can always be segmented
+  return true if s.empty?  
 
-  # loop over the string from end to start
-  (search_string.length - 1).downto(0).each do |index|
-    word_list.each do |word|
-      if (index + word.length) <= search_string.length &&
-         # word.length will be off for words at the biggining and middle
-         search_string[index...(index + word.length)] == word
+  n = s.length
+  dp = Array.new(n + 1, false)
+  # Base case: an empty prefix can always be segmented
+  dp[0] = true  
 
-        dp[index] = dp[index + word.length]
+  (1..n).each do |end_index|
+    (0...end_index).each do |start_index|
+      # Check if dp[start_index] is true (meaning the substring s[0...start_index] can be segmented) 
+      # and if s[start_index...end_index] exists in the dictionary (word_dict).
+      # if the segment exists in the dictionary
+      if dp[start_index] && word_dict.include?(s[start_index...end_index])
+        dp[end_index] = true
+        break
       end
-      break if dp[index]
     end
   end
 
-  # will be true if the word can be broken
-  dp[0]
+   # Check the end end index, if true then it can be segmented
+   # indicates whether the entire string can be segmented
+  dp[n] 
 end
 
-# s = 'catsandog'
-# a = %w[ap app appl ep epen]
-# a = ["cats","dog","sand","and","cat"]
+# Example usage:
+word_dict = ["apple", "pen"]
+puts word_break("applepenapple", word_dict)  # Output: true
+
+word_dict = ["cats", "dog", "sand", "and", "cat"]
+puts word_break("catsandog", word_dict)  # Output: false
+
 
 s = 'javapython'
-a = %w[java python]
+a = ["java", "python"]
 
 p word_break(s, a)
