@@ -1,7 +1,7 @@
 def remove_duplicates(array)
   uniq_set = Set.new
   array.each do |element|
-    ## checing for set inclusion is faster than for array
+    ## checking for set inclusion is faster than for array
     unless uniq_set.include? element
       uniq_set.add(element)
     end
