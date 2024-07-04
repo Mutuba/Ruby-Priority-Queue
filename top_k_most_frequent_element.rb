@@ -33,7 +33,7 @@ def top_k_most_frequent_elements(input_array, k)
   #   hash[elem] = 1 + hash.fetch(elem, 0)
   # end
 
-  bucket = Array.new(input_array.size + 1) { [] }
+  bucket = Array.new(input_array.size) { [] }
   # Step 1: Count the frequency of each element
   frequency_map = Hash.new(0)
   input_array.each do |num|
@@ -56,7 +56,7 @@ def top_k_most_frequent_elements(input_array, k)
       end
     end
   end
-  
+
 end
 
 sample_array = [12, 12, 34, 56, 34, 12, 47, 40, 40, 35]

@@ -1,9 +1,9 @@
 def word_break(s, word_dict)
   # Base case: empty string can always be segmented
-  return true if s.blank?  
+  return true if s.empty?  
 
-  n = s.length
-  dp = Array.new(n + 1, false)
+  n = s.length 
+  dp = Array.new(n, false)
   # Base case: an empty prefix can always be segmented
   dp[0] = true  
 
@@ -27,11 +27,11 @@ def word_break(s, word_dict)
 end
 
 # Example usage:
-word_dict = ["apple", "pen"]
-puts word_break("applepenapple", word_dict)  # Output: true
+# word_dict = ["apple", "pen"]
+# puts word_break("applepenapple", word_dict)  # Output: true
 
-word_dict = ["cats", "dog", "sand", "and", "cat"]
-puts word_break("catsandog", word_dict)  # Output: false
+# word_dict = ["cats", "dog", "sand", "and", "cat"]
+# puts word_break("catsandog", word_dict)  # Output: false
 
 
 s = 'javapython'
