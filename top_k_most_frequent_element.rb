@@ -52,7 +52,6 @@ def top_k_most_frequent_elements(input_array, k)
       result << element
       if result.length == k
         return result
-        break
       end
     end
   end
