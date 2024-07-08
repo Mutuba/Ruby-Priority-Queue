@@ -22,3 +22,10 @@ def edit_distance(str1, str2)
 
   dp[m][n]
 end
+
+
+# Example usage:
+str1 = "kitten"
+str2 = "sitting"
+result = edit_distance(str1, str2)
+puts "The edit distance between '#{str1}' and '#{str2}' is #{result}."
