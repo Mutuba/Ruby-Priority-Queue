@@ -2,7 +2,7 @@ def word_break(s, word_dict)
   # Base case: empty string can always be segmented
   return true if s.empty?  
 
-  n = s.length 
+  n = s.length + 1 # offset by 1 to account for empty string
   dp = Array.new(n, false)
   # Base case: an empty prefix can always be segmented
   dp[0] = true  
