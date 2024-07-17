@@ -3,7 +3,7 @@ def edit_distance(str1, str2)
   m = str1.length
   n = str2.length
 
-  dp = Array.new(n+1) {Array.new(m+1)}
+  dp = Array.new(n+1) {Array.new(m+1)} # offset by 1 to account for empty strings
   # fill first row and column
   (0..m).each { |i| dp[i][0] = i} 
   (0..n).each { |j| dp[0][j] = j} 
