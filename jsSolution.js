@@ -713,3 +713,38 @@ function maxSubArraySum(arr) {
 
   return maxSoFar;
 }
+
+function solution(string) {
+  // Define a map for matching parentheses
+  const map = {
+    "(": ")",
+    "{": "}",
+    "[": "]",
+  };
+
+  // Initialize a stack to keep track of opening parentheses
+  const stack = [];
+
+  // Loop through each character in the string
+  for (let char of string) {
+    // If the character is an opening parenthesis, push it onto the stack
+    if (map[char]) {
+      stack.push(char);
+    } else {
+      // If the character is a closing parenthesis, check if it matches the top of the stack
+      const top = stack.pop();
+      if (map[top] !== char) {
+        return false;
+      }
+    }
+  }
+
+  // If the stack is empty, all parentheses were matched correctly
+  return stack.length === 0;
+}
+
+const testString = "()[]{}";
+console.log("Solution: " + solution(testString)); // Output: true
+
+const invalidString = "([)]";
+console.log("Solution: " + solution(invalidString)); // Output: false
