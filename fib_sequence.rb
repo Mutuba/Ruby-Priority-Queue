@@ -1,4 +1,4 @@
-def fibonacci_recursive(n)
+def fibonacci_iterative(n)
   return n if n < 2
 
   fib0, fib1 = 0,1

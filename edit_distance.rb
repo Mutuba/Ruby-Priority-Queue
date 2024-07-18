@@ -23,7 +23,7 @@ def edit_distance(str1, str2)
       end
     end
   end
-
+  puts "Mutuba #{dp}"
   # The edit distance is in the bottom-right cell
   dp[m][n]
 end
