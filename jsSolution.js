@@ -141,7 +141,7 @@ function fibbonachiRecursion(num) {
   return fibbonachiRecursion(num - 1) + fibbonachiRecursion(num - 2);
 }
 
-// fibonaachi Recursion with memoization
+// fibonachi Recursion with memoization
 
 function fibonachiRecursionMemoization(num, memo) {
   if (num < 2) return num;
