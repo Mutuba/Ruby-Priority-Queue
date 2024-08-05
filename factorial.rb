@@ -40,6 +40,19 @@ def factorial_recursive_with_memo(n, memo = {})
   memo[n]
 end
 
+def fibonachi_recursive_with_memo(n, memo = {})
+  return "Not applicable for negative numbers" if n < 0
+  return n if n < 2 # 0 = 0, 1 = 1
+
+  if memo[n]
+    return memo[n]
+  end
+
+  return memo[n]  = fibonachi_recursive_with_memo(n-1, memo) + fibonachi_recursive_with_memo(n-2, memo)
+end
+
 p factorial(5)
 p factorial_recursive(5)
 p factorial_recursive_with_memo(5)
+
+puts fibonachi_recursive_with_memo(10) # Output: 55
