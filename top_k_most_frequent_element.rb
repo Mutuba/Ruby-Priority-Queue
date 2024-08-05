@@ -47,6 +47,8 @@ def top_k_most_frequent_elements(input_array, k)
 
   result = []
   # loop in reverse so as to start with most frequent depending on hash count
+  bucket.reject!(&:empty?)
+
   bucket.reverse.each do |inner_array|
     inner_array.each do |element|
       result << element
