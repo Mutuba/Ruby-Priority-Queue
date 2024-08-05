@@ -16,7 +16,7 @@ def edit_distance(str1, str2)
         dp[i][j] = dp[i - 1][j - 1] # No operation needed if characters are the same
       else
         dp[i][j] = [
-          dp[i - 1][j],    # Deletion: Remove current character from str1 CAT vs CATS and you compare CA vs CATS 
+          dp[i - 1][j],    # Deletion: Remove current character from str1 CATS vs CAT and you compare CA vs CATS 
           dp[i][j - 1],    # Insertion: Add current character of str2 to str1 CAT vs CATS and you have CAT VS CAT 
           dp[i - 1][j - 1] # Substitution: Replace current character of str1 with str2 CUT vs CAT
         ].min + 1 # Choose the operation with the minimum cost and add 1
