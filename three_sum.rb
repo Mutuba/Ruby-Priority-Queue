@@ -1,16 +1,24 @@
 def three_sum(input_array, target)
   hash = {}
-
-  # works if no duplicates
-  input_array.each.with_index do |elem, index|
+  
+  # Store each element and its index in the hash
+  input_array.each_with_index do |elem, index|
     hash[elem] = index
   end
+
   result = []
+
   input_array.each_with_index do |element, index|
     difference = target - element
-    input_array[index + 1..].each_with_index do |element, inner_index|
-      num = difference - element
-      result = [hash[num], inner_index, index] if hash.key?(num) && hash[num] != inner_index
+
+    (index + 1..input_array.length - 1).each do |inner_index|
+      target_num = difference - input_array[inner_index]
+      
+      # Ensure we're not using the same element twice
+      if hash.key?(target_num) && hash[target_num] != inner_index
+        result = [hash[target_num], inner_index, index]
+        return result
+      end
     end
   end
 
